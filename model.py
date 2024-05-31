@@ -22,7 +22,7 @@ class Shifts:
         for i in self.Forecast:
             self.model += xsum(self.A[i][j] * self.x[j] for j in self.Shifts) >= self.Forecast[i]
 
-    def objetive(self):
+    def objective(self):
         self.model.objective = minimize(xsum(self.Cost[j] * self.x[j] for j in self.Shifts))
 
     def execute(self):
